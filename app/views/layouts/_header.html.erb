@@ -1,9 +1,13 @@
-<div class="twelve columns">
-	<div class="four columns">
+<div class="twelve columns" style="padding:15px 0px">
+	<div class="six columns">
+		&nbsp;
+	</div>
+	<div class="six columns" style="text-align:center">
 		<% if current_user.nil? %>
 			<%= link_to 'Sign in', new_user_session_path %>
 			<%= link_to 'Sign up', new_user_registration_path %>
 		<% else %>
+			Welcome! <%= current_user.profile.fname %>
 			<% if current_user.role? :admin %>
 				<%= link_to 'Admin Panel', rails_admin_path %>
 			<% end %>
