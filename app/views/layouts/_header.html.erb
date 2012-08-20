@@ -1,18 +1,23 @@
 <div class="twelve columns" style="padding:15px 0px">
 	<div class="six columns">
-		&nbsp;
+		<% if !current_user.nil? %>
+			Welcome! <%= current_user.profile.fname %>
+		<% end %>
 	</div>
 	<div class="six columns" style="text-align:center">
-		<% if current_user.nil? %>
-			<%= link_to 'Sign in', new_user_session_path %>
-			<%= link_to 'Sign up', new_user_registration_path %>
-		<% else %>
-			Welcome! <%= current_user.profile.fname %>
-			<% if current_user.role? :admin %>
-				<%= link_to 'Admin Panel', rails_admin_path %>
-			<% end %>
-			<%= link_to 'Profile', profiles_path %>
-			<%= link_to 'Sign out', destroy_user_session_path, :method => :delete %>
-		<% end %>
+		<nav>
+			<ul class="">
+				<% if current_user.nil? %>
+					<li><%= link_to 'Sign in', new_user_session_path %></li>
+					<li><%= link_to 'Sign up', new_user_registration_path %></li>
+				<% else %>
+					<% if current_user.role? :admin %>
+						<li><%= link_to 'Admin Panel', rails_admin_path %></li>
+					<% end %>
+					<li><%= link_to 'Profile', profiles_path %></li>
+					<li><%= link_to 'Sign out', destroy_user_session_path, :method => :delete %></li>
+				<% end %>
+			</ul>
+		</nav>
 	</div>
 </div>
