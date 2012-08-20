@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title> | WebGeekDevCup</title>
+  <title><%= yield(:title) %> | WebGeekDevCup</title>
   <%= stylesheet_link_tag    "reset", "foundation", "custom", "media"  %>
   <%= javascript_include_tag "application" %>
   <%= csrf_meta_tags %>
