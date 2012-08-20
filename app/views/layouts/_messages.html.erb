@@ -1,0 +1,5 @@
+<div class="six columns offset-by-three" style="text-align: center">
+  <% flash.each do |name, msg| %>
+    <%= content_tag :div, msg, :class => "alert-box #{name}" if msg.is_a?(String) %>
+  <% end %>
+</div>
