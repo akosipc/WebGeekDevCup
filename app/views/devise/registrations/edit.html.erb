@@ -1,13 +1,13 @@
-<div class="four columns">
+<div class="three columns">
   &nbsp;
 </div>
-<div class="four columns">
+<div class="six columns">
   <div class="panel">
     <h2><center>Edit <%= resource_name.to_s.humanize %></center></h2>
 
     <%= form_for(resource, :as => resource_name, :url => registration_path(resource_name), :html => { :method => :put }) do |f| %>
       <%= devise_error_messages! %>
-
+      
       <div>
         <%= f.label :email %><br />
         <%= f.email_field :email %>
@@ -28,9 +28,9 @@
         <%= f.password_field :current_password %>
       </div>
 
-      <div>
+      <div style="margin:10px 0px">
         <center>
-          <%= f.submit "Update" , :class => "button" %>
+          <%= f.submit "Update" , :class => "button", :disable_with => "Updating.." %>
         </center>
       </div>
     <% end %>
@@ -40,6 +40,6 @@
     <%= link_to "Back", :back %>
   </div>
 </div>
-<div class="four columns">
+<div class="three columns">
   &nbsp;
 </div>

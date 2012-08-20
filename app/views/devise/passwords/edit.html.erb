@@ -1,7 +1,7 @@
-<div class="four columns">
+<div class="three columns">
 	&nbsp;
 </div>
-<div class="four columns">
+<div class="six columns">
 	<div class="panel">
 		<h2><center>Change your password</center></h2>
 
@@ -19,9 +19,9 @@
 		  	<%= f.password_field :password_confirmation %>
 		  </div>
 
-		  <div>
+		  <div style="margin:10px 0">
 		  	<center>
-		  		<%= f.submit "Change my password", :class => "button" %>
+		  		<%= f.submit "Change my password", :class => "button", :disable_with => "Submitting.." %>
 		  	</center>
 		  </div>
 		<% end %>
@@ -29,6 +29,6 @@
 		<%= render "devise/shared/links" %>
 	</div>
 </div>
-<div class="four columns">
+<div class="three columns">
 	&nbsp;
 </div>

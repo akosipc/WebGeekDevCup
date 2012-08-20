@@ -1,7 +1,7 @@
-<div class="four columns">
+<div class="three columns">
 	&nbsp;
 </div>
-<div class="four columns">
+<div class="six columns">
 	<div class="panel">
 		<h2><center>Forgot your password?</center></h2>
 
@@ -13,12 +13,16 @@
 		  	<%= f.email_field :email %>
 		  </div>
 
-		  <div><%= f.submit "Send me reset password instructions", :class => "button" %></div>
+		  <div style="margin:10px 0px">
+		  	<center>
+		  		<%= f.submit "Reset Password", :class => "button", :disable_with => "Resetting.." %>
+		  	</center>
+		  </div>
 		<% end %>
 
 		<%= render "devise/shared/links" %>
 	</div>
 </div>
-<div class="four columns">
+<div class="three columns">
 	&nbsp;
 </div>
