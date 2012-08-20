@@ -12,6 +12,7 @@ gem 'omniauth'
 gem 'rails_admin'
 gem 'will_paginate'
 gem 'pg'
+gem 'carrierwave'
 
 # Gems used only for assets and not required
 # in production environments by default.
