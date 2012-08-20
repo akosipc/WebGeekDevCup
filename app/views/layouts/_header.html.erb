@@ -6,7 +6,7 @@
 	</div>
 	<div class="six columns" style="text-align:center">
 		<nav>
-			<ul class="">
+			<ul class="right">
 				<% if current_user.nil? %>
 					<li><%= link_to 'Sign in', new_user_session_path %></li>
 					<li><%= link_to 'Sign up', new_user_registration_path %></li>
