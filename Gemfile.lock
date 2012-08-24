@@ -29,6 +29,7 @@ GEM
       i18n (~> 0.6)
       multi_json (~> 1.0)
     arel (3.0.2)
+    aws_cf_signer (0.1.1)
     bbenezech-nested_form (0.0.6)
     bcrypt-ruby (3.0.1-x86-mingw32)
     bootstrap-sass (2.0.4.0)
@@ -36,6 +37,9 @@ GEM
     cancan (1.6.8)
     carrierwave (0.5.8)
       activesupport (~> 3.0)
+    cloudinary (1.0.33)
+      aws_cf_signer
+      rest-client
     coffee-rails (3.2.2)
       coffee-script (>= 2.2.0)
       railties (~> 3.2.0)
@@ -139,6 +143,8 @@ GEM
     rdoc (3.12)
       json (~> 1.4)
     remotipart (1.0.2)
+    rest-client (1.6.7)
+      mime-types (>= 1.16)
     sass (3.2.1)
     sass-rails (3.2.5)
       railties (~> 3.2.0)
@@ -167,6 +173,7 @@ PLATFORMS
 DEPENDENCIES
   cancan
   carrierwave
+  cloudinary
   coffee-rails (~> 3.2.1)
   devise
   jquery-rails

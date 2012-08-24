@@ -21,11 +21,12 @@ class User < ActiveRecord::Base
   def self.find_for_facebook_oauth(auth, signed_in_resource = nil)
     user = User.where(:provider => auth.provider, :uid => auth.uid).first
     unless user
+      puts auth.extra.raw_info
       role = Role.find_by_name("User")
       profile = Profile.create(fname:auth.extra.raw_info.first_name,
                                lname:auth.extra.raw_info.last_name,
-                               gender:auth.extra.raw_info.gender)  
-      user = User.create(profile:profile_attributes,
+                               gender:auth.extra.raw_info.gender)
+      user = User.create(profile:profile,
                           provider:auth.provider,
                           uid:auth.id,
                           email:auth.info.email,
