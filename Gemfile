@@ -12,7 +12,6 @@ gem 'omniauth'
 gem 'omniauth-facebook'
 gem 'rails_admin'
 gem 'will_paginate'
-gem 'pg'
 gem 'carrierwave'
 gem 'cloudinary'
 
