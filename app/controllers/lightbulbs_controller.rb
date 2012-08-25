@@ -3,7 +3,7 @@ class LightbulbsController < ApplicationController
 
   def index
   	@lightbulbs = Lightbulb.all
-  	@lightbulb = Lightbulb.find_by_user_id(current_user.id)
+  	@owned_lightbulb = Lightbulb.find_by_user_id(current_user.id)
   end
 
   def create

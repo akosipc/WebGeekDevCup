@@ -1,5 +1,4 @@
 WebGeekDevCup::Application.routes.draw do
-  get "lightbulb/index"
 
   mount RailsAdmin::Engine => '/admin', :as => 'rails_admin'
 

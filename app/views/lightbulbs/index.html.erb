@@ -1,8 +1,28 @@
 <% provide(:title, 'Lightbulbs') %>
 <div class="eight columns">
-	<% @lightbulbs.each do |l| %>
-		<%= l.title %>
-	<% end %>
+	<dl class="tabs">
+  	<dd class="active"><a href="#owned">Owned Lightbulbs</a></dd>
+  	<dd><a href="#all">All Lightbulbs</a></dd>
+  	<dd><a href="#interest">Interesting Lightbulbs</a></dd>
+	</dl>
+
+	<ul class="tabs-content">
+ 	 <li class="active" id="ownedTab">
+ 		<% @lightbulbs.each do |l| %>
+			<%= l.title %>
+		<% end %>
+ 	 </li>
+  	<li id="allTab">
+  		<% @lightbulbs.each do |l| %>
+				<%= l.title %>
+			<% end %>
+  	</li>
+  	<li id="interestTab">
+  		<% @lightbulbs.each do |l| %>
+				<%= l.title %>
+			<% end %>
+  	</li>
+	</ul>
 </div>
 <div class="four columns">
 	Kantutan!!
