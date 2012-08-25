@@ -3,7 +3,7 @@
 <div class="six columns">
 	<% if @lightbulb.errors.any? %>
 		<%= @lightbulb.errors.each do |err| %>
-			<%= err %>
+			<%= err.full_messages %>
 	 	<% end %>
 	<% end %>
 	<%= form_for @lightbulb do |f| %>

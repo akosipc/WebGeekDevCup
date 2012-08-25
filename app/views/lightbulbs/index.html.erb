@@ -9,6 +9,9 @@
 	<ul class="tabs-content">
  	 <li class="active" id="ownedTab">
  		<% @lightbulbs.each do |l| %>
+ 			<div class="left">
+ 				<%= gravatar_for current_user %>
+ 			</div>
 			<%= l.title %>
 		<% end %>
  	 </li>
