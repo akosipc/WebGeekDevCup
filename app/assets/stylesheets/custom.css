@@ -9,11 +9,17 @@ nav ul li a:hover { text-decoration: underline;}
 textarea { height: 150px; }
 .lightbulb { margin: 7.5px 0px; padding: 7.5px; border-bottom: 1.5px solid #009999; box-shadow: 0px 1px 4px 4px #CCC; }
 .profile-image-large{ width: 100px; height: 100px;	}
-.number {
-	float:right;
-	background: green;
-	padding: 0px 5px;
+.number { float:right; background: green; padding: 0px 5px; -webkit-border-radius: 10px; -moz-border-radius: 10px; border-radius: 10px; }
+h1,h2,h3,h4,h5,h6,a,textarea,input,button, p,body{
+	font-family: 'Ubuntu', Helvetica, Arial, sans-serif;
+}
+.home-columns{ margin: 10px 0px; text-align: justify; }
+
+.header{
+	background: white;
+	border: 2.5px solid #555;
 	-webkit-border-radius: 10px;
 	-moz-border-radius: 10px;
 	border-radius: 10px;
+	box-shadow: 0px 1px 2px 2px #666;
 }
