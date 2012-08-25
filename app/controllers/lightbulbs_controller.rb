@@ -13,6 +13,7 @@ class LightbulbsController < ApplicationController
   def create
   	@lightbulb = Lightbulb.new(params[:lightbulb])
   	@lightbulb.user_id = current_user.id
+    @lightbulb.user_ids = [current_user.id]
   	if @lightbulb.save
   		redirect_to lightbulbs_path, :notice => "An idea was added!"
   	else
@@ -20,12 +21,27 @@ class LightbulbsController < ApplicationController
   	end
   end
 
+  def edit 
+  	@lightbulb = Lightbulb.find_by_id(params[:id])
+  end
+
   def update
-  	@lightbulb = Lightbulb.update_attributes(params[:lightbulb])
-  	if @lightbulb.save
+  	@lightbulb = Lightbulb.find_by_id(params[:id])
+  	if @lightbulb.update_attributes(params[:lightbulb])
   		redirect_to lightbulbs_path, :notice => "An idea was updated!"
   	else
   		render 'edit'
   	end
+  end
+
+  def show
+    @lightbulb = Lightbulb.find_by_id(params[:id])
+  end
+
+  def destroy
+  	@lightbulb = Lightbulb.find(params[:id])
+  	@lightbulb.destroy
+
+ 		redirect_to lightbulbs_path, :alert => "An idea was deleted!"
   end
 end
