@@ -1,4 +1,6 @@
 WebGeekDevCup::Application.routes.draw do
+  get "lightbulb/index"
+
   mount RailsAdmin::Engine => '/admin', :as => 'rails_admin'
 
   devise_for :users, :controllers => {
@@ -8,6 +10,7 @@ WebGeekDevCup::Application.routes.draw do
   root :to => "pages#index"
 
   resources :profiles
+  resources :lightbulbs
   # The priority is based upon order of creation:
   # first created -> highest priority.
 
