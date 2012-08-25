@@ -3,8 +3,8 @@ class LightbulbsController < ApplicationController
 
   def index
   	@lightbulbs = Lightbulb.all
-  	@owned_lightbulb = Lightbulb.find_by_user_id(current_user.id)
-  end
+  	@owned_lightbulb = Lightbulb.find(:all, :conditions => ["user_id = (?)", current_user.id])
+  end	
 
   def new
   	@lightbulb = Lightbulb.new

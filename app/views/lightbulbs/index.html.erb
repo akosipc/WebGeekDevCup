@@ -1,5 +1,5 @@
 <% provide(:title, 'Lightbulbs') %>
-<div class="eight columns">
+<div class="nine columns">
 	<dl class="tabs">
   	<dd class="active"><a href="#owned">Owned Lightbulbs</a></dd>
   	<dd><a href="#all">All Lightbulbs</a></dd>
@@ -8,26 +8,41 @@
 
 	<ul class="tabs-content">
  	 <li class="active" id="ownedTab">
- 		<% @lightbulbs.each do |l| %>
- 			<div class="left">
- 				<%= gravatar_for current_user %>
+ 		<% @owned_lightbulb.each do |l| %>
+ 			<div class="twelve columns lightbulb">
+ 				<div class="two columns">
+ 					<%= gravatar_for User.find_by_id(l.user_id) %>
+ 				</div>
+ 				<div class="ten columns">
+ 					<%= l.title %><br/>
+ 					<%= l.description[0..50] %>
+ 				</div>
  			</div>
-			<%= l.title %>
+ 			<div class="right">
+ 				<%= link_to 'Edit', edit_lightbulb_path(:id) %>
+ 			</div>
+ 			<div class="clearFix"></div>
 		<% end %>
  	 </li>
   	<li id="allTab">
   		<% @lightbulbs.each do |l| %>
-				<%= l.title %>
-			<% end %>
+  			<div class="twelve columns lightbulb">
+ 				<div class="two columns">
+ 					<%= gravatar_for User.find_by_id(l.user_id) %>
+ 				</div>
+ 				<div class="ten columns">
+ 					<%= l.title %><br/>
+ 					<%= l.description[0..50] %>
+ 				</div>
+ 			</div>
+ 			<div class="clearFix"></div>
+			<% end %>	
   	</li>
   	<li id="interestTab">
-  		<% @lightbulbs.each do |l| %>
-				<%= l.title %>
-			<% end %>
   	</li>
 	</ul>
 	<%= link_to 'Create Lightbulb', new_lightbulb_path %>
 </div>
-<div class="four columns">
-	Kantutan!!
+<div class="three columns">
+	Feed here!
 </div>
