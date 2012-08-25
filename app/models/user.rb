@@ -11,6 +11,7 @@ class User < ActiveRecord::Base
   # attr_accessible :title, :body
 
   has_and_belongs_to_many :roles
+  has_and_belongs_to_many :categories
   has_one :profile
   accepts_nested_attributes_for :profile
 
@@ -21,7 +22,6 @@ class User < ActiveRecord::Base
   def self.find_for_facebook_oauth(auth, signed_in_resource = nil)
     user = User.where(:provider => auth.provider, :uid => auth.uid).first
     unless user
-      puts auth.extra.raw_info
       role = Role.find_by_name("User")
       profile = Profile.create(fname:auth.extra.raw_info.first_name,
                                lname:auth.extra.raw_info.last_name,

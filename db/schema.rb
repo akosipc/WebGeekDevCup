@@ -11,7 +11,40 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120824162046) do
+ActiveRecord::Schema.define(:version => 20120825065944) do
+
+  create_table "achievements", :force => true do |t|
+    t.string   "name"
+    t.string   "image_url"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
+  create_table "categories", :force => true do |t|
+    t.string   "name"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
+  create_table "categories_lightbulbs", :id => false, :force => true do |t|
+    t.integer "category_id_id"
+    t.integer "lightbulb_id_id"
+  end
+
+  create_table "categories_users", :id => false, :force => true do |t|
+    t.integer "category_id"
+    t.integer "user_id"
+  end
+
+  create_table "lightbulbs", :force => true do |t|
+    t.integer  "user_id"
+    t.string   "title"
+    t.text     "description"
+    t.integer  "target_participants"
+    t.integer  "current_participants"
+    t.datetime "created_at",           :null => false
+    t.datetime "updated_at",           :null => false
+  end
 
   create_table "profiles", :force => true do |t|
     t.string   "fname"
@@ -66,5 +99,10 @@ ActiveRecord::Schema.define(:version => 20120824162046) do
 
   add_index "users", ["email"], :name => "index_users_on_email", :unique => true
   add_index "users", ["reset_password_token"], :name => "index_users_on_reset_password_token", :unique => true
+
+  create_table "users_lightbulbs", :id => false, :force => true do |t|
+    t.integer "user_id_id"
+    t.integer "lightbulb_id_id"
+  end
 
 end
