@@ -1,6 +1,30 @@
 <% provide(:title, 'Lightbulb Details') %>
 <div class="eight columns">
-	
+	<h2><%= @lightbulb.title %><br/></h2>
+	<h5><%= @lightbulb.description %></br></h5>
+	<hr>
+	<center><h5><%= @lightbulb.user_ids.count %> volunteers </h5></center>
+	<% @lightbulb.user_ids.each do |u| %>
+		<div class="two columns">
+			<%= gravatar_for User.find_by_id(u) %>
+		</div>
+		<div class="six columns">
+			<%= Profile.find_by_user_id(u).name %><br/>
+			<%= User.find_by_id(u).show_email %>
+		</div>
+		<div class="clearFix"></div>
+	<% end %>
+	<% if @lightbulb.user_id == current_user.id %>
+		<div class="alert-box notice" style="text-align:center">
+			<h3>You own this lightbulb!</h3>
+		</div>
+	<% elsif @lightbulb.user_ids.index(current_user.id) == nil %>
+		<%= link_to 'Volunteer', volunteer_path(@lightbulb.id), :class => "button" %>
+	<% else %>
+		<div class="alert-box notice" style="text-align:center">
+			<h3>You already joined this lightbulb!</h3>
+		</div>
+	<% end %>
 </div>
 <div class="four columns">
 </div>

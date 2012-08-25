@@ -1,5 +1,4 @@
 WebGeekDevCup::Application.routes.draw do
-
   mount RailsAdmin::Engine => '/admin', :as => 'rails_admin'
 
   devise_for :users, :controllers => {
@@ -10,6 +9,8 @@ WebGeekDevCup::Application.routes.draw do
 
   resources :profiles
   resources :lightbulbs
+
+  match 'volunteer/:id' => "lightbulbs#volunteer" , :as => "volunteer"
   # The priority is based upon order of creation:
   # first created -> highest priority.
 

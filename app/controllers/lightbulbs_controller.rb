@@ -44,4 +44,17 @@ class LightbulbsController < ApplicationController
 
  		redirect_to lightbulbs_path, :alert => "An idea was deleted!"
   end
+
+  def volunteer 
+    puts params[:id]
+    @lightbulb = Lightbulb.find_by_id(params[:id])
+    user_ids = @lightbulb.user_ids
+    user_ids << current_user.id
+    @lightbulb.user_ids = user_ids
+    if @lightbulb.save
+      redirect_to lightbulb_path(@lightbulb.id), :notice => "You followed this idea!"
+    else
+      redirect_to lightbulb_path(@lightbulb.id), :alert => "Error in connection!"
+    end
+  end
 end

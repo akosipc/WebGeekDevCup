@@ -7,7 +7,7 @@ class User < ActiveRecord::Base
 
   # Setup accessible (or protected) attributes for your model
   attr_accessible :email, :password, :password_confirmation, :remember_me, :profile_attributes, :role_ids,
-                  :provider, :uid, :profile
+                  :provider, :uid, :profile, :show_email
   # attr_accessible :title, :body
 
   has_and_belongs_to_many :roles
@@ -42,5 +42,9 @@ class User < ActiveRecord::Base
         user.email = data["email"] if user.email.blank?
       end
     end
+  end
+
+  def show_email
+    return email
   end
 end
