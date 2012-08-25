@@ -5,5 +5,4 @@ class Profile < ActiveRecord::Base
  	validates :fname, :lname, :gender, :presence => true
  	validates :fname, :length => 2..30
  	validates :lname, :length => 2..30
- 	
 end
