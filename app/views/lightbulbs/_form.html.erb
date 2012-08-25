@@ -1,0 +1,24 @@
+<div class="three columns">
+</div>
+<div class="six columns">
+	<% if @lightbulb.errors.any? %>
+		<%= @lightbulb.errors.each do |err| %>
+			<%= err %>
+	 	<% end %>
+	<% end %>
+	<%= form_for @lightbulb do |f| %>
+	  <%= f.label :title, "Title" %>
+	  <%= f.text_field :title %>
+	  <%= f.label :description, "Description" %>
+	  <%= f.text_area :description %>
+	  <%= f.label :target_participants, "Target Participants" %>
+	  <%= f.text_field :target_participants %>
+	  <%= f.label :end_date, "End Date" %>
+	  <%= f.datepicker :end_date %>
+	 	<center>
+	 		<%= f.submit "Submit", :disable_with => 'Submiting...', :class => 'button'%>
+	 	</center>
+	<% end %>
+</div>
+<div class="three columns">
+</div>

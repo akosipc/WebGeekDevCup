@@ -6,6 +6,10 @@ class LightbulbsController < ApplicationController
   	@owned_lightbulb = Lightbulb.find_by_user_id(current_user.id)
   end
 
+  def new
+  	@lightbulb = Lightbulb.new
+  end
+
   def create
   	@lightbulb = Lightbulb.new(params[:lightbulb])
   	@lightbulb.user_id = current_user.id
